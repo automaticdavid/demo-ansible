@@ -1,0 +1,37 @@
+- name: Install Avamar Agent
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+
+  - name: create temporary directory to get app
+    tempfile:
+      state: directory
+      suffix: avamar
+    register: r_temp
+    delegate_to: localhost
+    run_once: yes
+    become: no
+
+   - name: Get agent
+     get-url
+       url: https://fts.capgemini.com/pubpwd/19038359737396/AvamarClient-linux-sles11-x86_64-7.4.101-58.zip
+       url_username:  "{{ cap_username }}"
+       url_password   "{{ cap_password }}"
+       dest: "{{ r_temp }}/avamar.zip"
+
+   - name: Unzip on target 
+     unarchive:
+       src: "{{ r_temp.path }}/avamar.zip"
+       dest: /tmp
+     become: yes
+      
+
+   - name: Install Agent
+     yum:
+       name: /tmp/AvamarClient-linux-sles11-x86_64-7.4.101-58.rpm
+       state: present
+    
+
+
