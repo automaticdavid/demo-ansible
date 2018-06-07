@@ -1,0 +1,11 @@
+---
+
+- name: Install Avamar Agent
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+
+
+    

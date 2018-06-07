@@ -1,0 +1,22 @@
+---
+
+- name: Remove Avamar Agent
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+
+    - name: Stop Avamar service
+      service:
+        name: avagent
+        state: stopped
+
+    - name: Remove Agent
+      yum:
+        name: AvamarClient.x86_64
+        state: absent
+
+
+
+
