@@ -22,13 +22,15 @@
         url_username: "{{ cap_username }}"
         url_password:  "{{ cap_password }}"
         dest: "{{ r_temp }}/avamar.zip"
+      delegate_to: localhost
+      run_once: yes
+      become: no
 
     - name: Unzip on target 
       unarchive:
         src: "{{ r_temp.path }}/avamar.zip"
         dest: /tmp
-      become: yes
-        
+      become: yes 
 
     - name: Install Agent
       yum:
