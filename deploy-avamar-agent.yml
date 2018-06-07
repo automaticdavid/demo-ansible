@@ -50,4 +50,12 @@
         name: /tmp/AvamarClient-linux-sles11-x86_64-7.4.101-58.rpm
         state: present
 
+    - name: Start Avamar service, if not running
+      service:
+        name: avagent
+        state: started
+
+
+
+
 
