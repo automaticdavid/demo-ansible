@@ -31,6 +31,13 @@
         src: "{{ r_temp.path }}/avamar.zip"
         dest: /tmp/
 
+    - name: Install needed packages
+      yum:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - unzip
+
     - name: Unzip on target 
       unarchive:
         src: "/tmp/avamar.zip"
