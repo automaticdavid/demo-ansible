@@ -35,6 +35,7 @@
       unarchive:
         src: "/tmp/avamar.zip"
         dest: /tmp
+        remote_src: yes
       become: yes 
 
     - name: Install Agent
