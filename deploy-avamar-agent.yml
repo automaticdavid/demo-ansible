@@ -19,8 +19,8 @@
   - name: Get agent
     get-url:
       url: https://fts.capgemini.com/pubpwd/19038359737396/AvamarClient-linux-sles11-x86_64-7.4.101-58.zip
-      url_username:  "{{ cap_username }}"
-      url_password   "{{ cap_password }}"
+      url_username: "{{ cap_username }}"
+      url_password:  "{{ cap_password }}"
       dest: "{{ r_temp }}/avamar.zip"
 
   - name: Unzip on target 
