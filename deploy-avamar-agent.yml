@@ -29,7 +29,7 @@
     - name: Copy agent to targets
       copy:
         src: "{{ r_temp.path }}/avamar.zip"
-        dest: /tmp/avamar.zip
+        dest: /tmp/
 
     - name: Unzip on target 
       unarchive:
