@@ -21,7 +21,7 @@
         url: https://fts.capgemini.com/pubpwd/19038359737396/AvamarClient-linux-sles11-x86_64-7.4.101-58.zip
         url_username: "{{ cap_username }}"
         url_password:  "{{ cap_password }}"
-        dest: "{{ r_temp }}/avamar.zip"
+        dest: "{{ r_temp }}/"
       delegate_to: localhost
       run_once: yes
       become: no
