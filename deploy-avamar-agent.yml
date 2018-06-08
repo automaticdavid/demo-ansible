@@ -16,6 +16,14 @@
       run_once: yes
       become: no
 
+    - name: print the r_temp structure
+      debug:
+        msg: "{{ r_temp }}"
+
+    - name: print the r_temp.path structure
+      debug:
+        msg: "{{ r_temp.path }}"
+
     - name: Get agent
       get_url:
         url: https://fts.capgemini.com/pubpwd/19038359737396/AvamarClient-linux-sles11-x86_64-7.4.101-58.zip
