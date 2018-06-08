@@ -11,6 +11,7 @@
       service:
         name: avagent
         state: stopped
+      ignore_errors: true
 
     - name: Remove Agent
       yum:
